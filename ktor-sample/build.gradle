@@ -1,15 +1,27 @@
-plugins {
-    id 'java'
-    id 'application'
+buildscript {
+    ext.kotlin_version = '1.2.51'
+    ext.ktor_version = '0.9.3'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
-mainClassName = 'App'
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = 'AppKt'
 
 dependencies {
-    compile 'com.google.guava:guava:23.0'
-    testCompile 'junit:junit:4.12'
+    compile "io.ktor:ktor-server-netty:$ktor_version"
 }
 
 repositories {
+    mavenCentral()
     jcenter()
+    maven { url "https://dl.bintray.com/kotlin/ktor" }
 }
