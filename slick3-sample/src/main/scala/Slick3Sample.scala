@@ -13,10 +13,7 @@ object Slick3Sample extends ComponentAggregator(H2Profile) {
       _ <- createSchema
       _ <- suppliers += (150, "The High Ground", "100 Coffee Lane", "Meadows", "CA", "93966")
       _ <- coffees += ("Espresso", 150, 9.99, 0, 0)
-      message <- coffees.filter(_.name === "Espresso").map(_.price).result.headOption map {
-        case Some(price) => s"Coffee price is $price"
-        case None => "No coffee found!"
-      }
+      message <- coffees.filter(_.name === "Espresso").map(_.price).result.headOption
     } yield println(message)
 
     Await.ready(db.run(future), Duration.Inf)
