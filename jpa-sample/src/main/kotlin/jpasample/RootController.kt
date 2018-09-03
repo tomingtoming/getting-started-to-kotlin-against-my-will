@@ -9,8 +9,8 @@ class RootController(
 ) {
     @GetMapping("/")
     fun getRoot(): String {
-        return "[ " + coffeeRepository.findAll().map { coffee ->
+        return "[" + coffeeRepository.findAll().map { coffee ->
             coffee.name
-        }.joinToString(", ") + " ]"
+        }.joinToString(", ") + "]"
     }
 }

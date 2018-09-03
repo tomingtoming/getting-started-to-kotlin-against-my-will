@@ -14,8 +14,9 @@ data class Coffees(
         @Column(name = "COF_NAME", nullable = false)
         var name: String,
 
-        @Column(name = "SUP_ID", nullable = false)
-        var supId: Int,
+        @ManyToOne
+        @JoinColumn(name = "SUP_ID", nullable = false)
+        var supplier: Suppliers,
 
         @Column(name = "PRICE", nullable = false)
         var price: Double,
