@@ -1,11 +1,20 @@
 package jpasample
 
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class JpaSample
+class JpaSample(
+        private val supplierRepository: SupplierRepository,
+        private val coffeeRepository: CoffeeRepository
+) {
+    fun run() {
+        val supplier = supplierRepository.save(Suppliers(150, "The High Ground", "100 Coffee Lane", "Meadows", "CA", "93966"))
+        coffeeRepository.save(Coffees("Espresso", supplier, 9.99, 0, 0))
+        println(coffeeRepository.findByName("Espresso").map { it.price })
+    }
+}
 
 fun main(args: Array<String>) {
-    runApplication<JpaSample>(*args)
+    SpringApplication.run(JpaSample::class.java, *args).getBean(JpaSample::class.java).run()
 }
