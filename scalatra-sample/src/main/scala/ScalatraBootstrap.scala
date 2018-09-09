@@ -6,9 +6,3 @@ class ScalatraBootstrap extends LifeCycle {
     context.mount(new SampleScalatraServlet, "/*")
   }
 }
-
-class SampleScalatraServlet extends ScalatraServlet {
-  get("/hello/:name") {
-    s"Hello, ${params("name")}"
-  }
-}
