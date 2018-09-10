@@ -1,6 +1,8 @@
 import slick.jdbc.JdbcProfile
 
-class ComponentAggregator(val jdbcProfile: JdbcProfile) extends CoffeesComponent with SuppliersComponent {
+class ComponentAggregator(val jdbcProfile: JdbcProfile)
+  extends CoffeesComponent
+    with SuppliersComponent {
 
   import jdbcProfile.api._
 
