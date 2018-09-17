@@ -23,7 +23,7 @@ class FizzBuzzTest {
     }
 
     @Test
-    fun anyNumberDivisibleByBothOfThreeAndFiveShouldBeReplacedByTheFizzBuzz() {
+    fun anyNumberDivisibleByThreeAndFiveShouldBeReplacedByTheFizzBuzz() {
         assertEquals("fizz buzz", fizzBuzz.exec(15))
         assertEquals("fizz buzz", fizzBuzz.exec(30))
     }

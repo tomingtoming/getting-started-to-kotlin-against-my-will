@@ -11,7 +11,8 @@ object Slick3Sample extends ComponentAggregator(H2Profile) {
 
     val dbio = for {
       _ <- createSchema
-      _ <- suppliers += (150, "The High Ground", "100 Coffee Lane", "Meadows", "CA", "93966")
+      _ <- suppliers +=
+        (150, "The High Ground", "100 Coffee Lane", "Meadows", "CA", "93966")
       _ <- coffees += ("Espresso", 150, 9.99, 0, 0)
       message <- coffees.filter(_.name === "Espresso").map(_.price).result.headOption
     } yield println(message)

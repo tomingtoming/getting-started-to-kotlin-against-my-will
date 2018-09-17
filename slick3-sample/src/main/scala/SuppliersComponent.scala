@@ -7,7 +7,8 @@ trait SuppliersComponent {
 
   val suppliers = TableQuery[Suppliers]
 
-  class Suppliers(tag: Tag) extends Table[(Int, String, String, String, String, String)](tag, "SUPPLIERS") {
+  class Suppliers(tag: Tag)
+    extends Table[(Int, String, String, String, String, String)](tag, "SUPPLIERS") {
     def id = column[Int]("SUP_ID", O.PrimaryKey) // This is the primary key column
     def name = column[String]("SUP_NAME")
     def street = column[String]("STREET")

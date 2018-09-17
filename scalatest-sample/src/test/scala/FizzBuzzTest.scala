@@ -14,7 +14,7 @@ class FizzBuzzTest extends FlatSpec with Matchers {
     fizzBuzz.exec(5) should be ("buzz")
     fizzBuzz.exec(10) should be ("buzz")
   }
-  "Any number divisible by both of three and five" should "be replaced by the fizz buzz" in {
+  "Any number divisible by three and five" should "be replaced by the fizz buzz" in {
     fizzBuzz.exec(15) should be ("fizz buzz")
     fizzBuzz.exec(30) should be ("fizz buzz")
   }
